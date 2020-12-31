@@ -16,8 +16,7 @@ namespace MVCApplicationCore.ViewModels
         public string LastName { get; set; }       
         [DisplayName("Email Id")]
         [RegularExpression(@"^[a-zA-Z0-9_.+-]+@[a-zA-Z0-9-]+\.[a-zA-Z0-9-.]+$", ErrorMessage = "Invalid EmailId")]
-        public string EmailAddress { get; set; }
-        [RegularExpression(@"^([0-9]{10})$", ErrorMessage = "Invalid Mobile Number.")]
+        public string EmailAddress { get; set; }       
         [DisplayName("Phone Number")]        
         public string PhoneNumber { get; set; }
         [DisplayName("Your Message")]

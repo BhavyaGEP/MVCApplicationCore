@@ -46,6 +46,7 @@ function EmailIdValidation() {
         var valid = emailreg.test(email);
         if (!valid) {
             $("#emailId").text("Invalid Email Id");
+            $("#emailId").show();
             valid = false;
         }
         else {
@@ -68,6 +69,7 @@ function PhoneNumberValidation() {
         var exp = /^[0-9-+]+$/;
         if (!(exp.test(PhoneNumber))) {
             $("#phoneNumber").text("Invalid Phone Nmuber");
+            $("#phoneNumber").show();
             valid = false;
         }
         if (valid) {
