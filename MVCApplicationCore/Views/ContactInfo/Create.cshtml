@@ -1,0 +1,68 @@
+﻿@model MVCApplicationCore.ViewModels.ContactInfoViewModel
+
+@{
+    ViewData["Title"] = "Contact Us";
+}
+
+
+<h4>ContactInfo</h4>
+<hr />
+<form asp-action="Create" id="createForm">
+    <div class="row">
+        <div class="col-md-6">
+            <div class="text-danger"></div>
+            <div class="row">
+                <div class="form-group col-md-6">
+                    <label asp-for="@Model.FirstName" class="control-label"></label>
+                    <input asp-for="@Model.FirstName" class="form-control" placeholder="First Name" />
+                    <span asp-validation-for="FirstName" class="text-danger"></span>
+                    @*<span id="firstName" class="text-danger"></span>*@
+                </div>
+                <div class="form-group col-md-6">
+                    <label asp-for="LastName" class="control-label"></label>
+                    <input asp-for="LastName" class="form-control" placeholder="Last Name" />
+                    <span id="lastName" class="text-danger" style="color:red"></span>
+                </div>
+            </div>
+            <div class="form-group">
+                <label asp-for="EmailAddress" class="control-label"></label>
+                <input asp-for="EmailAddress" class="form-control" placeholder="Email Id" />
+                <span id="emailId" class="text-danger"></span>
+                @*<span asp-validation-for="EmailAddress" class="text-danger"></span>*@
+            </div>
+            <div class="form-group">
+                <label asp-for="PhoneNumber" class="control-label"></label>
+                <input asp-for="PhoneNumber" class="form-control" placeholder="Phone Number" />
+                <span id="phoneNumber" class="text-danger"></span>
+                @*<span asp-validation-for="PhoneNumber" class="text-danger"></span>*@
+            </div>
+            <div class="form-group">
+                <label asp-for="ContactPurpose" class="control-label"></label>
+                <select asp-for="ContactPurpose" class="form-control" asp-items="Html.GetEnumSelectList<ContactPurpose>()">
+                    <option value="">Please Select</option>
+                </select>
+                @*<span asp-validation-for="ContactPurpose" class="text-danger"></span>*@
+            </div>
+        </div>
+        <div class="col-md-6">
+            <div asp-validation-summary="ModelOnly" class="text-danger"></div>
+            <div class="form-group">
+                <label asp-for="Message" class="control-label"></label>
+                <textarea rows="9" asp-for="Message" class="form-control" placeholder="Hi There I would Like To.."></textarea>
+                @*<span asp-validation-for="Message" class="text-danger"></span>*@
+            </div>
+            <br />
+            <div class="form-group SubmitBtn">
+                <input id="submitBtn" type="submit" value="Send" class="btn btn-primary" />
+            </div>
+        </div>
+    </div>
+</form>
+
+<div>
+    <a asp-action="Index">Back to List</a>
+</div>
+
+@section Scripts {
+    @{await Html.RenderPartialAsync("_ValidationScriptsPartial");}
+}
